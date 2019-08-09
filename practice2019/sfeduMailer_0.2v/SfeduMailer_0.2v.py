@@ -114,11 +114,10 @@ class Authorization:
         self.labelPass.place(x=130, y=80)
 
         #self.passwordText = Text(master, height=1, width=30)
-        passwordText1="t17081998t"
+        passwordText1=""
         self.passEntry = Entry(master, textvariable=passwordText1, show='*', )
         self.passwordText = passwordText1
         self.passEntry.place(x=50, y=110)
-        self.passEntry.insert(INSERT, "t17081998t")
 
         self.greet_button = Button(master, text="Войти", width=15, height=2, command=self.EnterInMainWindow)
         self.greet_button.place(x=80, y=200 - 50)
