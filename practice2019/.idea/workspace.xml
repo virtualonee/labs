@@ -25,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SfeduMailer_0.1v.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SfeduMailer_0.1v.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sfeduMailer_0.1v/SfeduMailer_0.1v.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="118" column="41" lean-forward="false" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
+            <state relative-caret-position="-1382">
+              <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SfeduMailer_0.2v.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SfeduMailer_0.2v.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sfeduMailer_0.2v/SfeduMailer_0.2v.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+            <state relative-caret-position="-54">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -64,8 +64,8 @@
         <option value="$PROJECT_DIR$/FileWay.py" />
         <option value="$PROJECT_DIR$/SfeduMailer.py" />
         <option value="$PROJECT_DIR$/SfeduMailer_0.2v.py" />
-        <option value="$PROJECT_DIR$/sfeduMailer_0.1v/SfeduMailer_0.1v.py" />
         <option value="$PROJECT_DIR$/sfeduMailer_0.2v/SfeduMailer_0.2v.py" />
+        <option value="$PROJECT_DIR$/sfeduMailer_0.1v/SfeduMailer_0.1v.py" />
       </list>
     </option>
   </component>
@@ -285,20 +285,20 @@
     <entry file="file://$PROJECT_DIR$/SfeduMailer.py" />
     <entry file="file://$PROJECT_DIR$/SfeduMailer_0.2v.py" />
     <entry file="file://$PROJECT_DIR$/SfeduMailer_0.1v.py" />
-    <entry file="file://$PROJECT_DIR$/sfeduMailer_0.1v/SfeduMailer_0.1v.py">
+    <entry file="file://$PROJECT_DIR$/sfeduMailer_0.2v/SfeduMailer_0.2v.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="118" column="41" lean-forward="false" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
+        <state relative-caret-position="-54">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sfeduMailer_0.2v/SfeduMailer_0.2v.py">
+    <entry file="file://$PROJECT_DIR$/sfeduMailer_0.1v/SfeduMailer_0.1v.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+        <state relative-caret-position="-1382">
+          <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>

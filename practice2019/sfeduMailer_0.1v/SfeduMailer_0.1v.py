@@ -52,31 +52,31 @@ class MainWindow:
         self.fileWay.delete(1.0, END)
         self.fileWay.insert(INSERT, self.path)
 
-    def attach_file(self, msg, filepath):  # Функция по добавлению конкретного файла к сообщению
-        filename = os.path.basename(filepath)  # Получаем только имя файла
-        ctype, encoding = mimetypes.guess_type(filepath)  # Определяем тип файла на основе его расширения
-        if ctype is None or encoding is not None:  # Если тип файла не определяется
-            ctype = 'application/octet-stream'  # Будем использовать общий тип
-        maintype, subtype = ctype.split('/', 1)  # Получаем тип и подтип
-        if maintype == 'text':  # Если текстовый файл
-            with open(filepath) as fp:  # Открываем файл для чтения
-                file = MIMEText(fp.read(), _subtype=subtype)  # Используем тип MIMEText
-                fp.close()  # После использования файл обязательно нужно закрыть
-        elif maintype == 'image':  # Если изображение
+    def attach_file(self, msg, filepath):
+        filename = os.path.basename(filepath)
+        ctype, encoding = mimetypes.guess_type(filepath)
+        if ctype is None or encoding is not None:
+            ctype = 'application/octet-stream'
+        maintype, subtype = ctype.split('/', 1)
+        if maintype == 'text':
+            with open(filepath) as fp:
+                file = MIMEText(fp.read(), _subtype=subtype)
+                fp.close()
+        elif maintype == 'image':
             with open(filepath, 'rb') as fp:
                 file = MIMEImage(fp.read(), _subtype=subtype)
                 fp.close()
-        elif maintype == 'audio':  # Если аудио
+        elif maintype == 'audio':
             with open(filepath, 'rb') as fp:
                 file = MIMEAudio(fp.read(), _subtype=subtype)
                 fp.close()
-        else:  # Неизвестный тип файла
+        else:
             with open(filepath, 'rb') as fp:
-                file = MIMEBase(maintype, subtype)  # Используем общий MIME-тип
-                file.set_payload(fp.read())  # Добавляем содержимое общего типа (полезную нагрузку)
+                file = MIMEBase(maintype, subtype)
+                file.set_payload(fp.read())
                 fp.close()
-                encoders.encode_base64(file)  # Содержимое должно кодироваться как Base64
-        file.add_header('Content-Disposition', 'attachment', filename=filename)  # Добавляем заголовки
+                encoders.encode_base64(file)
+        file.add_header('Content-Disposition', 'attachment', filename=filename)
         msg.attach(file)
 
     def SendMail(self):
@@ -85,8 +85,8 @@ class MainWindow:
         msg['From'] = self.addr_from
         msg['To'] = self.addr_to
         msg['Subject'] = self.titleMesg
-        body = self.textMesg  # Текст сообщения
-        msg.attach(MIMEText(body, 'plain'))  # Добавляем в сообщение текст
+        body = self.textMesg
+        msg.attach(MIMEText(body, 'plain'))
         pathFile = self.path
         self.attach_file(msg, pathFile)
 
