@@ -1,10 +1,9 @@
-from tkinter import Tk, Label, Button, Text, Entry
 import os
 from tkinter import *
 from tkinter import filedialog
+from . Success import Success
 
 import smtplib
-
 import mimetypes
 from email import encoders
 from email.mime.base import MIMEBase
@@ -13,24 +12,23 @@ from email.mime.image import MIMEImage
 from email.mime.audio import MIMEAudio
 from email.mime.multipart import MIMEMultipart
 
-
-class MainWindow:
-    def __init__(self, master):
+class SendFile:
+    def __init__(self, master, login, password, title, text):
         self.master = master
         master.title("SfeduMailer")
 
-        self.addr_from = "addr@sfedu.ru"
-        self.addr_to = "addr@sfedu.ru"
-        self.password = "password"
-        self.titleMesg = "Приемная комиссия ЮФУ"
-        self.textMesg = ""
+        self.addr_from = login
+        self.addr_to = ""
+        self.password = password
+        self.titleMesg = title
+        self.textMesg = text
+        self.path = ""
 
         self.label = Label(master, text="Путь к файлу:")
         self.label.place(x=50, y=20)
 
         self.fileWay = Text(master, height=1, width=25)
         self.fileWay.place(x=50, y=50)
-        self.path = ""
 
         self.label = Label(master, text="Почта получателя:")
         self.label.place(x=50, y=80)
@@ -94,60 +92,15 @@ class MainWindow:
         server.set_debuglevel(True)
         server.login(self.addr_from, self.password)
         server.send_message(msg)
-        print("Отправленно")
         server.quit()
 
-class Authorization:
-    def __init__(self, master):
-        self.master = master
-        master.title("Вход")
-
-        self.labelLogin = Label(master, text="Почта")
-        self.labelLogin.place(x=130, y=20)
-
-        self.addr_fromText = Text(master, height=1, width=23)
-        self.addr_fromText.place(x=50, y=50)
-        self.path = ""
-        self.addr_fromText.insert(INSERT, "publish2018@mail.ru")
-
-        self.labelPass = Label(master, text="Пароль")
-        self.labelPass.place(x=130, y=80)
-
-        passwordText1=""
-        self.passEntry = Entry(master, textvariable=passwordText1, show='*', )
-        self.passwordText = passwordText1
-        self.passEntry.place(x=50, y=110)
-
-        self.greet_button = Button(master, text="Войти", width=15, height=2, command=self.EnterInMainWindow)
-        self.greet_button.place(x=80, y=200 - 50)
-
-    def EnterInMainWindow(self):
-        addr_from = self.addr_fromText.get(1.0, END)
-        password = self.passwordText
-        print(password)
-        self.master.destroy()
         root = Tk()
-        root.geometry('300x200+200+100')
-        x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 2
-        y = (root.winfo_screenheight() - root.winfo_reqheight()) / 2
-        root.wm_geometry("+%d+%d" % (x, y))
+        root.geometry('300x70+200+100')
+        x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 4
+        y = (root.winfo_screenheight() - root.winfo_reqheight()) / 4
+        root.wm_geometry("+%d+%d" % (x*3+100, y*3+100))
         root.resizable(width=False, height=False)
-        my_gui = MainWindow(root)
-        my_gui.addr_from = addr_from
-        my_gui.password = password
+        my_gui = Success(root)
         root.mainloop()
 
 
-
-
-
-
-
-root = Tk()
-root.geometry('300x200+200+100')
-x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 2
-y = (root.winfo_screenheight() - root.winfo_reqheight()) / 2
-root.wm_geometry("+%d+%d" % (x, y))
-root.resizable(width=False, height=False)
-my_gui = Authorization(root)
-root.mainloop()
