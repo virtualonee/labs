@@ -3,6 +3,10 @@ from tkinter import *
 from tkinter import filedialog
 from . Success import Success
 
+import sys
+sys.path.append("..")
+from db.data import Data
+
 import smtplib
 import mimetypes
 from email import encoders
@@ -13,10 +17,11 @@ from email.mime.audio import MIMEAudio
 from email.mime.multipart import MIMEMultipart
 
 class SendFile:
-    def __init__(self, master, login, password, title, text):
+    def __init__(self, master, login, password, title, text, dataDef):
         self.master = master
         master.title("SfeduMailer")
 
+        self.dataDef = dataDef
         self.addr_from = login
         self.addr_to = ""
         self.password = password
@@ -35,6 +40,7 @@ class SendFile:
 
         self.mail = Text(master, height=1, width=30)
         self.mail.place(x=50, y=110)
+        self.mail.insert(INSERT, self.dataDef["addr_to"])
 
         self.greet_button = Button(master, text="Отправить", width=7, height=1, command=self.SendMail)
         self.greet_button.place(x=50, y=200-50)
@@ -46,7 +52,7 @@ class SendFile:
         self.greet_button.place(x=235, y=50)
 
     def SavePath(self):
-        self.path = filedialog.askopenfilename( filetypes = ( ("howCode files", ".txt"),("All files", "*.*")))
+        self.path = filedialog.askopenfilename( filetypes = ( ("All files", "*.*"),("Excel", "*.xml*")))
         self.fileWay.delete(1.0, END)
         self.fileWay.insert(INSERT, self.path)
 
@@ -94,13 +100,16 @@ class SendFile:
         server.send_message(msg)
         server.quit()
 
+        data = Data()
+        data.Write(self.dataDef)
+
         root = Tk()
         root.geometry('300x70+200+100')
         x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 4
         y = (root.winfo_screenheight() - root.winfo_reqheight()) / 4
         root.wm_geometry("+%d+%d" % (x*3+100, y*3+100))
         root.resizable(width=False, height=False)
-        my_gui = Success(root)
+        Success(root)
         root.mainloop()
 
 
